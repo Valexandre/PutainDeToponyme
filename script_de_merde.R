@@ -1,4 +1,4 @@
-library(tidyverse)
+library(dplyr)
 library(sf)
 library(ragg)
 library(rtweet)
@@ -11,7 +11,6 @@ tweetbot_token <- rtweet::rtweet_bot(
 )
 rtweet::auth_as(tweetbot_token)
 
-NomsCommunes<-readRDS("data/NomsCommunes.Rdata")
 CommunesavecJoli_ctd<-readRDS("data/CommunesavecJoli_ctd.Rdata")
 Deps<-readRDS("data/Deps.Rdata")
 Regroupees<-readRDS("data/VillesTourette.Rdata")
