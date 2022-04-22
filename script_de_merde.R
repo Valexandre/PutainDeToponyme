@@ -17,9 +17,9 @@ Regroupees<-readRDS("data/VillesTourette.Rdata")
 
 Regroupeesrnd<-sample(Regroupees$INSEE_COM,1)
 Commune<-Regroupees$NouveauNom[Regroupees$INSEE_COM==Regroupeesrnd]
-
+print(Commune)
 img<-paste0("data/",Sys.Date(),"_",Regroupeesrnd,"_",Commune,".png")
-
+print(img)
 ragg::agg_png(filename=img,width = 625,height=900,units = "px")
 Deps%>%ggplot()+
 geom_sf(fill="#141E28",colour="white")+
@@ -33,4 +33,4 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
         text=element_text(size=26,colour="white"),plot.background = element_rect(fill="#141E28",colour=NA))
 dev.off()
 
-rtweet::post_tweet(token = tweetbot_token, status = paste0("Salut les glandus. Aujourd'hui, découvrons ",Commune,". #VillesDeLaTourette"), media=img)
+rtweet::post_tweet(token = tweetbot_token, status = paste0("Salut les glandus. Aujourd'hui, découvrons ",Commune,". #VillesDeLaTourette"), media=img, alt_text=Commune)
