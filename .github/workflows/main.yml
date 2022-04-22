@@ -27,7 +27,7 @@ jobs:
      # Set-up R
     - name: Install packages
       run: |
-        install.packages(c("ragg","dplyr","remotes","sf"),type="binary")
+        install.packages(c("ragg","tidyverse","remotes","sf"),type="binary")
         remotes::install_github("ropensci/rtweet")
       shell: Rscript {0}
 
