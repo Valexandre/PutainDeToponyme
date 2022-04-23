@@ -23,6 +23,8 @@ print(img)
 Txtstatus<-paste0("Salut les glandus. Aujourd'hui, découvrons ",Commune,". #VillesDeLaTourette")
 print (Txtstatus)
 
+rtweet::post_tweet(status="Putain de test", token=tweetbot_token)
+
 ragg::agg_png(filename=img,width = 625,height=900,units = "px")
 Deps%>%ggplot()+
 geom_sf(fill="#141E28",colour="white")+
