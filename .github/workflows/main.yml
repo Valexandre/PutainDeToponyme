@@ -1,6 +1,6 @@
 # Hourly scraping
 name: Sa mère le tweet
-# Controls when the action will run.
+# Vas y essaie
 on:
   schedule:
     - cron:  '55 14 * * *'
