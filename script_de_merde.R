@@ -27,7 +27,7 @@ Txtstatus<-paste0(sample(c("Salut les glandus. Au menu : ","Bonjour les gros lou
 print (Txtstatus)
 
 ragg::agg_png(filename=img,width = 625,height=900,units = "px")
-Deps%>%ggplot()+
+plot(Deps%>%ggplot()+
 geom_sf(fill="#141E28",colour="white")+
 geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y),colour="white",size=8)+
 geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y),colour="red",size=5)+
@@ -36,8 +36,8 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
        caption="Carte et code par ce connard de @humeursdevictor")+
   theme_void()+
   theme(panel.background = element_rect(fill="#141E28",colour="white"),
-        text=element_text(size=26,colour="white"),plot.background = element_rect(fill="#141E28",colour=NA))
+        text=element_text(size=26,colour="white"),plot.background = element_rect(fill="#141E28",colour=NA)))
 dev.off()
 
 #Envoie le ton tweet à la con
-rtweet::post_tweet(token = tweetbot_token, status = Txtstatus, media=img, alt_text=Commune)
+rtweet::post_tweet(status = Txtstatus, media=img, alt_text=Commune,token = tweetbot_token)
