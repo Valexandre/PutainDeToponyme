@@ -20,7 +20,7 @@ Regroupeesrnd<-sample(Regroupees$INSEE_COM,1)
 Commune<-Regroupees$NouveauNom[Regroupees$INSEE_COM==Regroupeesrnd]
 print(Commune)
 imageaha<-paste0("data/",Sys.Date(),"_",Regroupeesrnd,".png")
-print(img)
+print(imageaha)
 
 
 Txtstatus<-paste0(sample(c("Salut les glandus. Au menu : ","Bonjour les gros lourds. Au menu du jour : ","Hello les blaireaux. Le petit nouveau : "),1), Commune,". #VillesDeLaTourette")
