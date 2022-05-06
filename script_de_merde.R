@@ -19,14 +19,14 @@ Regroupees<-readRDS("data/VillesTourette.Rdata")
 Regroupeesrnd<-sample(Regroupees$INSEE_COM,1)
 Commune<-Regroupees$NouveauNom[Regroupees$INSEE_COM==Regroupeesrnd]
 print(Commune)
-img<-paste0("data/",Sys.Date(),"_",Regroupeesrnd,"_",Commune,".png")
+imageaha<-paste0("data/",Sys.Date(),"_",Regroupeesrnd,".png")
 print(img)
 
 
 Txtstatus<-paste0(sample(c("Salut les glandus. Au menu : ","Bonjour les gros lourds. Au menu du jour : ","Hello les blaireaux. Le petit nouveau : "),1), Commune,". #VillesDeLaTourette")
 print (Txtstatus)
 
-ragg::agg_png(filename=img,width = 625,height=900,units = "px")
+ragg::agg_png(filename=img,width = 625,height=900 res = 144)
 plot(Deps%>%ggplot()+
 geom_sf(fill="#141E28",colour="white")+
 geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y),colour="white",size=8)+
@@ -37,7 +37,8 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
   theme_void()+
   theme(panel.background = element_rect(fill="#141E28",colour="white"),
         text=element_text(size=26,colour="white"),plot.background = element_rect(fill="#141E28",colour=NA)))
-dev.off()
+ invisible(dev.off())
+
 
 #Envoie le ton tweet à la con
-rtweet::post_tweet(status = Txtstatus, media=img, media_alt_text=Commune, token = tweetbot_token)
+rtweet::post_tweet(status = Txtstatus, media=  imageaha, media_alt_text = Commune, token = tweetbot_token)
