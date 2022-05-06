@@ -9,7 +9,7 @@ on:
       - main
 
 jobs: 
-  QUEQUETTE:
+  FEIGNASSE_DE_JOB:
     # The type of runner that the job will run on
     runs-on: macos-latest
     env:
@@ -25,14 +25,14 @@ jobs:
     - uses: r-lib/actions/setup-r@master
 
      # Set-up R
-    - name: Install packages
+    - name: Installe tes packages tout pourris
       run: |
         install.packages(c("ragg","tidyverse","remotes","sf"),type="binary")
         remotes::install_github("ropensci/rtweet")
       shell: Rscript {0}
 
     # Run R script
-    - name: Grossier
+    - name: Grossier personnage
       run: Rscript script_de_merde.R
       
  # Add new files in data folder, commit along with other modified files, push
