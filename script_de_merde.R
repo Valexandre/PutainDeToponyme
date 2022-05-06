@@ -39,4 +39,4 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
         text=element_text(size=26,colour="white"),plot.background = element_rect(fill="#141E28",colour=NA))
 dev.off()
 
-rtweet::post_tweet(token = tweetbot_token, status = Txtstatus, media=img, alt_text=Commune)
+#rtweet::post_tweet(token = tweetbot_token, status = Txtstatus, media=img, alt_text=Commune)
