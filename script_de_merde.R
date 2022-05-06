@@ -22,7 +22,7 @@ print(Commune)
 imageaha<-paste0("data/",Sys.Date(),"_",Regroupeesrnd,".png")
 print(imageaha)
 
-
+rtweet::post_tweet(status="MAIS TEST BORDEL")
 Txtstatus<-paste0(sample(c("Salut les glandus. Au menu : ","Bonjour les gros lourds. Au menu du jour : ","Hello les blaireaux. Le petit nouveau : "),1), Commune,". #VillesDeLaTourette")
 print (Txtstatus)
 
@@ -41,4 +41,4 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
 
 
 #Envoie le ton tweet à la con
-rtweet::post_tweet(status = Txtstatus, media=  imageaha, media_alt_text = Commune, token = tweetbot_token)
+#rtweet::post_tweet(status = Txtstatus, media=  imageaha, media_alt_text = Commune, token = tweetbot_token)
