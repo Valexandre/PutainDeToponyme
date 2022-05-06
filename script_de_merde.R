@@ -26,7 +26,7 @@ print(imageaha)
 Txtstatus<-paste0(sample(c("Salut les glandus. Au menu : ","Bonjour les gros lourds. Au menu du jour : ","Hello les blaireaux. Le petit nouveau : "),1), Commune,". #VillesDeLaTourette")
 print (Txtstatus)
 
-ragg::agg_png(filename=imageaha,width = 625,height=900, res = 144)
+ragg::agg_png(filename=imageaha,width = 625,height=900, units = "px")
 plot(Deps%>%ggplot()+
 geom_sf(fill="#141E28",colour="white")+
 geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y),colour="white",size=8)+
