@@ -40,4 +40,4 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
 dev.off()
 
 #Envoie le ton tweet à la con
-rtweet::post_tweet(status = Txtstatus, media=img, alt_text=Commune,token = tweetbot_token)
+rtweet::post_tweet(status = Txtstatus, media=img, token = tweetbot_token)
