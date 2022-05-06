@@ -21,10 +21,10 @@ Commune<-Regroupees$NouveauNom[Regroupees$INSEE_COM==Regroupeesrnd]
 print(Commune)
 img<-paste0("data/",Sys.Date(),"_",Regroupeesrnd,"_",Commune,".png")
 print(img)
-Txtstatus<-paste0("Salut les glandus. Aujourd'hui, découvrons ",Commune,". #VillesDeLaTourette")
-print (Txtstatus)
 
-rtweet::post_tweet(status="Putain de test", token=tweetbot_token)
+
+Txtstatus<-paste0(sample(c("Salut les glandus. Au menu : ","Bonjour les gros lourds. Au menu du jour : ","Hello les blaireaux. Le petit nouveau : "),1), Commune,". #VillesDeLaTourette")
+print (Txtstatus)
 
 ragg::agg_png(filename=img,width = 625,height=900,units = "px")
 Deps%>%ggplot()+
@@ -39,4 +39,5 @@ geom_point(data=CommunesavecJoli_ctd%>%filter(INSEE_COM==Regroupeesrnd),aes(X,Y)
         text=element_text(size=26,colour="white"),plot.background = element_rect(fill="#141E28",colour=NA))
 dev.off()
 
-#rtweet::post_tweet(token = tweetbot_token, status = Txtstatus, media=img, alt_text=Commune)
+#Envoie le ton tweet à la con
+rtweet::post_tweet(token = tweetbot_token, status = Txtstatus, media=img, alt_text=Commune)
