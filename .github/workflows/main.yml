@@ -1,9 +1,9 @@
 # Hourly scraping
 name: Sa mère le tweet
 # Vas y essaie
-on:
-  schedule:
-    - cron:  '55 8,17 * * *'
+ on:
+#  schedule:
+#    - cron:  '55 8,17 * * *'
   push:
     branches:
       - main
